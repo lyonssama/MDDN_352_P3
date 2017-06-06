@@ -1,0 +1,71 @@
+<DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/styles.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="js.js"></script>
+
+    
+	<title>myDive</title>
+		<div id="wrapperHeader">
+    		<div id="header">
+
+   			</div> 
+		</div>
+</head>
+<script src="https://www.gstatic.com/firebasejs/4.1.1/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDZy2pmh2TN7ApGjpAZty0g-UZ9bV076Gc",
+    authDomain: "mydive-7c51a.firebaseapp.com",
+    databaseURL: "https://mydive-7c51a.firebaseio.com",
+    projectId: "mydive-7c51a",
+    storageBucket: "mydive-7c51a.appspot.com",
+    messagingSenderId: "457063853315"
+  };
+  firebase.initializeApp(config);
+</script>
+
+<script src="https://cdn.firebase.com/libs/firebaseui/2.0.0/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.0.0/firebaseui.css" />
+    <script type="text/javascript">
+      // FirebaseUI config.
+      var uiConfig = {
+        signInSuccessUrl: 'makara.html',
+        signInOptions: [
+          // Leave the lines as is for the providers you want to offer your users.
+          firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+          firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+          firebase.auth.EmailAuthProvider.PROVIDER_ID,
+        ],
+        // Terms of service url.
+        tosUrl: 'makara.html'
+      };
+
+      // Initialize the FirebaseUI Widget using Firebase.
+      var ui = new firebaseui.auth.AuthUI(firebase.auth());
+      // The start method will wait until the DOM is loaded.
+      ui.start('#firebaseui-auth-container', uiConfig);
+    </script>
+
+  <body>
+
+
+
+<center><i><font color="white">"A place where divers can come to check marine conditions</font></i></center>
+<center><i><font color="white">personalised to their diving preferences."</font></i></center>
+<br>
+    <div id="firebaseui-auth-container"></div>
+
+</body>
+
+
+</html>
+
+
+

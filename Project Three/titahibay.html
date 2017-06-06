@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/styles.css" type="text/css" rel="stylesheet">
+    <script src="https://www.gstatic.com/firebasejs/4.0.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.0.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.0.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.0.0/firebase-messaging.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.1.1/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyDCBslhucgd0Ry1mLOUiVEqnp4ya8Cwrkw",
+        authDomain: "mydive-ccc68.firebaseapp.com",
+        databaseURL: "https://mydive-ccc68.firebaseio.com",
+        projectId: "mydive-ccc68",
+        storageBucket: "mydive-ccc68.appspot.com",
+        messagingSenderId: "348886238399"
+      };
+      firebase.initializeApp(config);
+    </script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="js.js"></script>
+
+
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <img class ="diver" src="images/logowithoutback.png" alt="mydive">
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="makara.html">Makara</a>
+                    </li>
+                    <li>
+                        <a href="redrocks.html">Red Rocks</a>
+                    </li>
+                    <li>
+                        <a href="breakerbay.html">Breaker Bay</a>
+                    </li>
+                    <li>
+                        <a href="sharkstooth.html">Sharks Tooth</a>
+                    </li>
+                    <li>
+                        <a href="titahibay.html">Titahi Bay</a>
+                    </li>
+                    <li>
+                        <a href="eastbourne.html">Eastbourne</a>
+                    </li>
+                    <li>
+                        <a href="pencarrow.html">Penacarrow</a>
+                    </li>
+                </ul>
+
+                <button><a href="Settings.html">SETTINGS</a></button>
+
+                <button><a href="Index.html">LOGOUT</a></button>
+
+            </div>
+            <!-- /.navbar-collapse -->
+            <br>
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <div class="container">     
+            <div class="col-lg-12">
+                <br>
+        
+                <h1 class="page-header">
+                    TITAHI BAY
+                     <div class="map">
+                     <br>
+
+                    <iframe width="120" height="120" frameborder="0" style="border:0"
+                    src="https://www.google.com/maps/embed/v1/directions?origin=Titahi+Bay+Beach,+Beach+Road,+Porirua,+New+Zealand&destination=Titahi+Bay+Beach,+Beach+Road,+Porirua,+New+Zealand&key=AIzaSyDjtJGCUqU1TdvaEW8GJKEQPI0lGDwUeUc" allowfullscreen></iframe>
+
+                    </div>
+                </h1>
+
+
+            </div>
+
+             <!-- Page Content -->
+    <div class="container">
+
+        <!-- Marketing Icons Section -->
+        <div class="row">
+            <div class="col-lg-12">
+               <!--  <h1 class="page-header">
+                    myData
+                </h1> -->
+            </div>
+            <div class="col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4><i class="fa fa-fw fa-check"></i> Today's Forecast</h4>
+                    </div>
+                    <div class="panel-body">
+                
+                   <div class="resultContainer">
+                    </div>
+                        <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+                            <script src="./script/freeAPI.js" type="text/javascript"></script>
+                                <script type="text/javascript">
+
+                                var resultContainer = $('#resultContainer');
+                                var output = '';
+
+                                $(document).ready(function () {
+
+                                 
+                                    //$('#btnMarineWeatherFree').click(GetMarineWeather);
+                                    GetMarineWeather();
+
+                                });
+
+                               
+                                //------------ MARINE WEATHER ----------------
+
+                                function GetMarineWeather(e) {
+
+                                    var marineWeatherInput = {
+                                        query: '41.1060,174.8356',
+                                        format: 'JSON',
+                                        fx: '',
+                                        callback: 'MarineWeatherCallback'
+                                    };
+
+                                    JSONP_MarineWeather(marineWeatherInput);
+                                    e.preventDefault();
+                                }
+
+                                function MarineWeatherCallback(marineWeather) {
+
+                                    var dive;
+                                    var swellHeight = marineWeather.data.weather[0].hourly[0].swellHeight_m;
+                                    var minTemp = marineWeather.data.weather[0].mintempC;
+
+                                    var windSpeed = marineWeather.data.weather[0].hourly[0].windspeedKmph;
+                                    console.log(marineWeather.data);
+                                    var windDirection = marineWeather.data.weather[0].hourly[0].winddir16Point;  
+                                    var swellDirection = marineWeather.data.weather[0].hourly[0].swellDir;
+                                    var sigwaveHeight = marineWeather.data.weather[0].hourly[0].sigHeight_m;
+                                    var waterTemperature = marineWeather.data.weather[0].hourly[0].waterTemp_C;
+                                
+
+                                function canIDive() {
+                                  if(swellHeight < 0.5 && minTemp > 2) {
+                                    dive = "YES, CONDITIONS ARE SAFE FOR DIVING";
+                                     $(".swell-height").css("color", "green");
+
+                                  } else {
+                                    dive = "NO, CONDITIONS ARE NOT SAFE FOR DIVING";
+                                    $(".swell-height").css("color", "red");
+                                  }
+                                }
+                                
+                                canIDive();
+
+                                      output += "<br/> Min Temp (c): " + marineWeather.data.weather[0].mintempC;
+
+                                      output += "<br/> Max Temp (c): " + marineWeather.data.weather[0].maxtempC;
+
+                                      output += "<br/> Water Temperature (c): " + marineWeather.data.weather[0].hourly[0].waterTemp_C;
+
+
+
+                                    output += "<br/> Significant Wave Height: " + marineWeather.data.weather[0].hourly[0].sigHeight_m
+
+                                    output += "<br/> Swell Height: " + marineWeather.data.weather[0].hourly[0].swellHeight_m;
+
+                                    output += "<br/> Swell Direction: " + marineWeather.data.weather[0].hourly[0].swellDir
+
+
+
+                                    output += "<br/> Wind Speed: " + marineWeather.data.weather[0].hourly[0].windspeedKmph;
+
+                                    output += "<br/> Wind Direction: " + marineWeather.data.weather[0].hourly[0].winddir16Point;
+
+                                    
+
+                                    
+
+                                    $(".swell-height").text(dive); //j query selecter. if i want it to show data instead of no, enter line above
+
+
+                                
+
+                                    resultContainer.empty();
+                                    resultContainer.html(output);
+
+                                }
+
+
+
+    //-------------------------------------------
+
+    
+</script>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- /.row -->
+
+        <div class="yesterday">
+           <img src="images/yesterday.jpg" alt="placeholder">
+        </div>
+
+
+<h1 class="page-header">
+                    Trip Logs
+</h1>
+
+
+
+<div class="user-info">
+
+  <div class="tb-header row">
+    <div class="col">
+      Date
+    </div>
+
+    <div class="col">
+      Conditions
+    </div>
+
+    <div class="col last">
+      Catch
+    </div>
+  </div>
+
+  <div class="tb-entry row">
+    <div class="cover"></div>
+
+    <div class="col">
+      <input type="text" maxlength="10" id="name" class="full">
+    </div>
+
+    <div class="col">
+      <input type="text" maxlength="16" id="age" class="full">
+    </div>
+
+    <div class="col last">
+      <input type="text" maxlength="16" id="fav-num" class="full">
+    </div>
+
+  </div>
+
+  <div class="tb-data row row-0">
+
+    <div class="col">
+      5/06/17
+    </div>
+
+    <div class="col">
+      Clear visibility, would recommend today
+    </div>
+    <div class="col last">
+      5 paua, 2 butterfish
+    </div>
+  </div>
+
+  <button id="add-user"><i class="fa fa-plus"></i></button>
+</div>
+
+                
+
+</div>
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; myDive</p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+ </div>
+
+    <!-- /.container -->
+
+    <!-- jQuery -->
+
+
+
+
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
