@@ -4,7 +4,7 @@
     These keys have been provided for testing only.
     If you don't have one, then register now: http://developer.worldweatheronline.com/member/register    
 */
-var _FreeApiKey = 'xkq544hkar4m69qujdgujn7w';
+var _FreeApiKey = '310facabc35e4f16a4913539172804 ';
 
 // -------------------------------------------
 

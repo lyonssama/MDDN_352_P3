@@ -14,6 +14,58 @@ body {
 
 }
 
+.myClass{
+ position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 1em;
+  border: 2px solid #ffffff;
+  padding: 2% 1% 2% 1%;
+  margin: 0 auto 0.7% auto; 
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 0.3em;
+  box-shadow: .2em .2em .2em #444;
+  
+}
+
+.myClass p{
+  margin-right:50px;
+}
+
+header.carousel {
+  width: 100%;
+  height: 30%;
+}
+
+header.carousel .item,
+header.carousel .item.active,
+header.carousel .carousel-inner {
+    height: 100%;
+}
+
+header.carousel .fill {
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+}
+
+.carousel-indicators {
+  height: 1px;
+}
+
+#tImage {
+  width: 50px;
+  height: 50px;
+}
+
+#atImage {
+  width: 50px;
+  height: 50px;
+}
+
 
 #header{
     background-image: url("../images/logowithoutback.png");
@@ -43,7 +95,6 @@ h1 {
 }
 
 
-
 .diver {
     height: 15%;
     width: 15%;
@@ -55,6 +106,13 @@ h1 {
 img {
     height: 30%;
     width: 30%;
+}
+
+.settings {
+  display: inline-block;
+  width: 50px;
+  margin-left: 20%;
+  margin-top: -30%;
 }
 
 .page-header {
@@ -71,18 +129,21 @@ img {
 
 }
 
-
-
 .navbar {
-  display: inline;
-    background-color: #004280;
+    display: inline;
+    background-color: #012643;
+   /* background-image: url("../images/underwater.jpg");*/
     border-color: white;
+
 
 }
 
+.panel-body {
+  height: 100px;
+}
+
 .container {
-    background-color: #004280;
-    width: 90%;
+    width: 100%;
     float: center;
 }
 
@@ -239,7 +300,7 @@ input[type="text"].full {
 
 .user-info {
   text-align: center;
-  width: 100%;
+  width: 80%;
   font-size: 0.8em;
   margin: 10px auto;
   position: relative;
@@ -368,6 +429,8 @@ input[type="text"].full {
   font-weight: 700;
 }
 
+
+
 /* Responsive Styles */
 
 @media(max-width: 700px) {
@@ -393,7 +456,9 @@ input[type="text"].full {
   margin: auto;
 }
 
-
+.col-lg-12 {
+  padding-left: 10%;
+}
 
 h1 {
   color: white;
@@ -411,8 +476,10 @@ h1 {
 
 .page-header {
    display: inline-block;
-   width: 100%;
+   width: 90%;
    margin-top: 15%;
+   margin-left: 5%;
+   float: center;
 }
 
 
